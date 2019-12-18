@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class MaterialControls extends StatefulWidget {
-  const MaterialControls({Key key}) : super(key: key);
+  const MaterialControls({this.iconColor, Key key}) : super(key: key);
+  final Color iconColor;
 
   @override
   State<StatefulWidget> createState() {
@@ -107,8 +108,6 @@ class _MaterialControlsState extends State<MaterialControls> {
   AnimatedOpacity _buildBottomBar(
     BuildContext context,
   ) {
-    final iconColor = Theme.of(context).textTheme.button.color;
-
     return AnimatedOpacity(
       opacity: _hideStuff ? 0.0 : 1.0,
       duration: Duration(milliseconds: 300),
@@ -120,7 +119,7 @@ class _MaterialControlsState extends State<MaterialControls> {
             _buildPlayPause(controller),
             chewieController.isLive
                 ? Expanded(child: const Text('LIVE'))
-                : _buildPosition(iconColor),
+                : _buildPosition(widget.iconColor),
             chewieController.isLive ? const SizedBox() : _buildProgressBar(),
             chewieController.allowMuting
                 ? _buildMuteButton(controller)
@@ -275,6 +274,7 @@ class _MaterialControlsState extends State<MaterialControls> {
         '${formatDuration(position)} / ${formatDuration(duration)}',
         style: TextStyle(
           fontSize: 14.0,
+          color: iconColor,
         ),
       ),
     );

@@ -185,6 +185,7 @@ class ChewieController extends ChangeNotifier {
     this.isLive = false,
     this.allowFullScreen = true,
     this.allowMuting = true,
+    this.textPlayerColor,
     this.systemOverlaysAfterFullScreen = SystemUiOverlay.values,
     this.deviceOrientationsAfterFullScreen = const [
       DeviceOrientation.portraitUp,
@@ -271,6 +272,10 @@ class ChewieController extends ChangeNotifier {
 
   /// Defines a custom RoutePageBuilder for the fullscreen
   final ChewieRoutePageBuilder routePageBuilder;
+
+  /// Defines the textColor of the current player length/duration
+
+  final Color textPlayerColor;
 
   static ChewieController of(BuildContext context) {
     final chewieControllerProvider =

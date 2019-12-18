@@ -39,6 +39,7 @@ class _ChewieDemoState extends State<ChewieDemo> {
       aspectRatio: 3 / 2,
       autoPlay: true,
       looping: true,
+      textPlayerColor: Colors.white,
       // Try playing around with some of these other options:
 
       // showControls: false,
